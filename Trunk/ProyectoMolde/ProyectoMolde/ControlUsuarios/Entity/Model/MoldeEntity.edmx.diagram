@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="01ea6939dee24bb784c6c0ac0a415d0f" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="MoldeModel.AplicacionesWeb" Width="1.5" PointX="3" PointY="21.875" />
+        <EntityTypeShape EntityType="MoldeModel.Barrios" Width="1.5" PointX="5.25" PointY="3.5" />
+        <EntityTypeShape EntityType="MoldeModel.ControlAplicacion" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MoldeModel.Departamentos" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="MoldeModel.DocumentosIdentidad" Width="1.5" PointX="5.25" PointY="15.5" />
+        <EntityTypeShape EntityType="MoldeModel.EstadosCivil" Width="1.5" PointX="5.25" PointY="7.25" />
+        <EntityTypeShape EntityType="MoldeModel.Formularios" Width="1.5" PointX="7.5" PointY="21.25" />
+        <EntityTypeShape EntityType="MoldeModel.GruposSanguineo" Width="1.5" PointX="5.25" PointY="12.75" />
+        <EntityTypeShape EntityType="MoldeModel.Menus" Width="1.5" PointX="5.25" PointY="21.5" />
+        <EntityTypeShape EntityType="MoldeModel.Municipios" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="MoldeModel.Operaciones" Width="1.5" PointX="7.5" PointY="18.5" />
+        <EntityTypeShape EntityType="MoldeModel.OperacionesFormulario" Width="1.5" PointX="9.75" PointY="20.125" />
+        <EntityTypeShape EntityType="MoldeModel.Perfiles" Width="1.5" PointX="7.5" PointY="9.375" />
+        <EntityTypeShape EntityType="MoldeModel.PerfilesOperacionesFormulario" Width="1.5" PointX="12" PointY="15.125" />
+        <EntityTypeShape EntityType="MoldeModel.Personas" Width="1.5" PointX="7.5" PointY="1.125" />
+        <EntityTypeShape EntityType="MoldeModel.Sexos" Width="1.5" PointX="5.25" PointY="10" />
+        <EntityTypeShape EntityType="MoldeModel.Usuarios" Width="1.5" PointX="9.75" PointY="3.125" />
+        <EntityTypeShape EntityType="MoldeModel.UsuariosOperacionesFormulario" Width="1.5" PointX="12" PointY="3.5" />
+        <AssociationConnector Association="MoldeModel.FK_Menus_AplicacionesWeb" />
+        <AssociationConnector Association="MoldeModel.FK_Barrios_Municipios" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
+        <AssociationConnector Association="MoldeModel.FK_Municipios_Departamentos2" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_DocumentosIdentidad" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_EstadosCivil1" />
+        <AssociationConnector Association="MoldeModel.FK_Formularios_Menus" />
+        <AssociationConnector Association="MoldeModel.FK_OperacionesFormulario_Formularios" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_GruposSanguineo1" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios2" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios3" />
+        <AssociationConnector Association="MoldeModel.FK_OperacionesFormulario_Operaciones" />
+        <AssociationConnector Association="MoldeModel.FK_PerfilesOperacionesFormulario_OperacionesFormulario" />
+        <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_OperacionesFormulario" />
+        <AssociationConnector Association="MoldeModel.FK_PerfilesOperacionesFormulario_Perfiles" />
+        <AssociationConnector Association="MoldeModel.FK_Usuarios_Perfiles" />
+        <AssociationConnector Association="MoldeModel.FK_dbo_Personas_Sexo" />
+        <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
+        <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" />
+        <EntityTypeShape EntityType="MoldeModel.OpcionesMaestroAnexos" Width="1.5" PointX="12.625" PointY="8" />
+        <EntityTypeShape EntityType="MoldeModel.MaestroAnexos" Width="1.5" PointX="10.625" PointY="9.625" />
+        <AssociationConnector Association="MoldeModel.FK_OpcionesMaestroAnexos_MaestroAnexos" />
+        <EntityTypeShape EntityType="MoldeModel.ConsecutivosTemporales" Width="1.5" PointX="12.875" PointY="11.75" />
+        <AssociationConnector Association="MoldeModel.FK_ConsecutivosTemporales_MaestroAnexos" />
+        <EntityTypeShape EntityType="MoldeModel.Anexos" Width="1.5" PointX="14.875" PointY="7.75" />
+        <AssociationConnector Association="MoldeModel.FK_Anexos_OpcionesMaestroAnexos" />
+        <AssociationConnector Association="MoldeModel.FK_MaestroAnexos_AplicacionesWeb" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

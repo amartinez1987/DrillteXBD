@@ -1,0 +1,189 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frmMasterPage.master.cs" Inherits="ProyectoMolde.Forms.frmMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Molde Principal</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../bootstrapLibrerias/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link href="../bootstrapLibrerias/vendor/metisMenu/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- DataTables CSS -->
+    <link href="../bootstrapLibrerias/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Jquery Datatable -->
+    <link href="../bootstrapLibrerias/vendor/jquery/jquery.dataTables.min.css" rel="stylesheet">
+
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../bootstrapLibrerias/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../bootstrapLibrerias/dist/css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="../bootstrapLibrerias/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <div id="boxMessages" class="row" style="position: absolute; text-align: left; left: 70%; top: 10%; z-index: 2">
+            </div>
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Molde</a>
+                </div>
+                <!-- /.navbar-header -->
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="fa fa-envelope fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages">
+                        </ul>
+                        <!-- /.dropdown-messages -->
+                    </li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="fa fa-tasks fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-tasks">                           
+                        </ul>
+                        <!-- /.dropdown-tasks -->
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-comment fa-fw"></i>New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i>Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-alerts -->
+                    </li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a id="btnPerfil" onclick="goProfile()"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                            </li>
+                            <li><a id="btnConfiguracion" onclick="goChangePassword()"><i class="fa fa-gear fa-fw"></i>Cambiar Contraseña</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a id="btnLogOut"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>
+                <!-- /.navbar-top-links -->
+                <!-- Barra navegacion agregada con append-->
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="menu">
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <asp:ContentPlaceHolder ID="contenPlaceDocument" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+    </form>
+    <!-- jQuery -->
+    <script src="../bootstrapLibrerias/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bootstrapLibrerias/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bootstrapLibrerias/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="../bootstrapLibrerias/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../bootstrapLibrerias/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../bootstrapLibrerias/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../bootstrapLibrerias/dist/js/sb-admin-2.min.js"></script>
+
+    <!-- FunctionsJs -->
+    <script src="../Js/configAjax.js"></script>
+    <script src="../Js/cajasTexto.js"></script>
+    <script src="../Js/login.js"></script>
+    <script src="../Js/funcionesJsGeneral.js"></script>
+
+    <asp:ContentPlaceHolder ID="footerScripst" runat="server">
+    </asp:ContentPlaceHolder>
+    <script>
+        getListaMenuPerfilUsuario();
+    </script>
+
+
+</body>
+</html>

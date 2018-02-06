@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frmCrudMaster.master.cs" Inherits="ProyectoMolde.Forms.frmCrudMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+       <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div   id="boxMessagesCrud"  class="row" style="position:absolute; text-align:left; left:70%; z-index:2">
+        </div>
+    <form id="form1" runat="server" enctype="multipart/form-data" class="formulario" method="post">
+        <div>
+            <asp:ContentPlaceHolder ID="contenPlaceDocument" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <asp:ContentPlaceHolder ID="ContentPlaceFoot" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoldeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Anexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="opcionMaestroAnexoId" Type="int" Nullable="false" />
+    <Property Name="registroTablaId" Type="int" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="anexo" Type="varbinary(max)" Nullable="false" />
+    <Property Name="nombreAnexo" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="consecutivoTemporal" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AplicacionesWeb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="800" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Barrios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="municipioId" Type="int" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConsecutivosTemporales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="consecutivo" Type="bigint" Nullable="false" />
+    <Property Name="maestroAnexoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ControlAplicacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="varchar" MaxLength="800" Nullable="false" />
+    <Property Name="fechaInicio" Type="varchar" MaxLength="800" Nullable="false" />
+    <Property Name="fechaFin" Type="varchar" MaxLength="800" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="codigoDane" Type="varchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentosIdentidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sigla" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstadosCivil">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sigla" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Formularios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreFormulario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="urlFormulario" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="nombreMostrar" Type="varchar" MaxLength="800" Nullable="false" />
+    <Property Name="menuId" Type="int" Nullable="false" />
+    <Property Name="esVisible" Type="bit" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="estados" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="iconOpcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="indexVisibilidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GruposSanguineo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sigla" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaestroAnexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tabla" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="aplicacionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreMenu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="aplicacionWebId" Type="int" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="icon" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="indexVisibilidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="departamentoId" Type="int" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="codigoDane" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OpcionesMaestroAnexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreOpcion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="maestroAnexosId" Type="int" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Operaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreOperacion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="visualizaFormularioMenu" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OperacionesFormulario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="formularioId" Type="int" />
+    <Property Name="operacionId" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="8000" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombrePerfil" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="8000" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilesOperacionesFormulario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="operacionFormularioId" Type="int" />
+    <Property Name="perfilId" Type="int" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numeroDocumento" Type="varchar" MaxLength="100" />
+    <Property Name="documentoIdentidadId" Type="int" Nullable="false" />
+    <Property Name="primerNombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="segundoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="primerApellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="segundoApellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="municipioId" Type="int" Nullable="false" />
+    <Property Name="grupoSanguineoId" Type="int" Nullable="false" />
+    <Property Name="sexoId" Type="int" Nullable="false" />
+    <Property Name="fechaExpedicionCedula" Type="date" Nullable="false" />
+    <Property Name="municipioExpedicionId" Type="int" Nullable="false" />
+    <Property Name="barrioId" Type="int" />
+    <Property Name="direcccion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="estatura" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="peso" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="estadoCivilId" Type="int" Nullable="false" />
+    <Property Name="telefonoFijo" Type="bigint" Nullable="false" />
+    <Property Name="telefonoCelular" Type="bigint" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sigla" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idPersona" Type="int" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+    <Property Name="usuarioId" Type="int" />
+    <Property Name="perfilId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuariosOperacionesFormulario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="operacionFormularioId" Type="int" Nullable="false" />
+    <Property Name="usuarioIdApl" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Anexos_OpcionesMaestroAnexos">
+    <End Role="OpcionesMaestroAnexos" Type="Self.OpcionesMaestroAnexos" Multiplicity="1" />
+    <End Role="Anexos" Type="Self.Anexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpcionesMaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Anexos">
+        <PropertyRef Name="opcionMaestroAnexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Barrios_Municipios">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+    <End Role="Barrios" Type="Self.Barrios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Barrios">
+        <PropertyRef Name="municipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsecutivosTemporales_MaestroAnexos">
+    <End Role="MaestroAnexos" Type="Self.MaestroAnexos" Multiplicity="1" />
+    <End Role="ConsecutivosTemporales" Type="Self.ConsecutivosTemporales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ConsecutivosTemporales">
+        <PropertyRef Name="maestroAnexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Personas_Sexo">
+    <End Role="Sexos" Type="Self.Sexos" Multiplicity="1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="sexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Formularios_Menus">
+    <End Role="Menus" Type="Self.Menus" Multiplicity="1" />
+    <End Role="Formularios" Type="Self.Formularios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Formularios">
+        <PropertyRef Name="menuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaestroAnexos_AplicacionesWeb">
+    <End Role="AplicacionesWeb" Type="Self.AplicacionesWeb" Multiplicity="1" />
+    <End Role="MaestroAnexos" Type="Self.MaestroAnexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AplicacionesWeb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MaestroAnexos">
+        <PropertyRef Name="aplicacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menus_AplicacionesWeb">
+    <End Role="AplicacionesWeb" Type="Self.AplicacionesWeb" Multiplicity="0..1" />
+    <End Role="Menus" Type="Self.Menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AplicacionesWeb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Menus">
+        <PropertyRef Name="aplicacionWebId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipios_Departamentos2">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Municipios">
+        <PropertyRef Name="departamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionesMaestroAnexos_MaestroAnexos">
+    <End Role="MaestroAnexos" Type="Self.MaestroAnexos" Multiplicity="1" />
+    <End Role="OpcionesMaestroAnexos" Type="Self.OpcionesMaestroAnexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OpcionesMaestroAnexos">
+        <PropertyRef Name="maestroAnexosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperacionesFormulario_Formularios">
+    <End Role="Formularios" Type="Self.Formularios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formularios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperacionesFormulario">
+        <PropertyRef Name="formularioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperacionesFormulario_Operaciones">
+    <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operaciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperacionesFormulario">
+        <PropertyRef Name="operacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesOperacionesFormulario_OperacionesFormulario">
+    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PerfilesOperacionesFormulario" Type="Self.PerfilesOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperacionesFormulario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PerfilesOperacionesFormulario">
+        <PropertyRef Name="operacionFormularioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesOperacionesFormulario_Perfiles">
+    <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="0..1" />
+    <End Role="PerfilesOperacionesFormulario" Type="Self.PerfilesOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PerfilesOperacionesFormulario">
+        <PropertyRef Name="perfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_Barrios1">
+    <End Role="Barrios" Type="Self.Barrios" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Barrios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="barrioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_DocumentosIdentidad">
+    <End Role="DocumentosIdentidad" Type="Self.DocumentosIdentidad" Multiplicity="1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentosIdentidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="documentoIdentidadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_EstadosCivil1">
+    <End Role="EstadosCivil" Type="Self.EstadosCivil" Multiplicity="1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadosCivil">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="estadoCivilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_GruposSanguineo1">
+    <End Role="GruposSanguineo" Type="Self.GruposSanguineo" Multiplicity="1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GruposSanguineo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="grupoSanguineoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_Municipios2">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="municipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_Municipios3">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="municipioExpedicionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Perfiles">
+    <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="perfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Personas">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosOperacionesFormulario_OperacionesFormulario">
+    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuariosOperacionesFormulario" Type="Self.UsuariosOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperacionesFormulario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsuariosOperacionesFormulario">
+        <PropertyRef Name="operacionFormularioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosOperacionesFormulario_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosOperacionesFormulario" Type="Self.UsuariosOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsuariosOperacionesFormulario">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MoldeModelStoreContainer">
+    <EntitySet Name="Anexos" EntityType="Self.Anexos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AplicacionesWeb" EntityType="Self.AplicacionesWeb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Barrios" EntityType="Self.Barrios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsecutivosTemporales" EntityType="Self.ConsecutivosTemporales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ControlAplicacion" EntityType="Self.ControlAplicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentosIdentidad" EntityType="Self.DocumentosIdentidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadosCivil" EntityType="Self.EstadosCivil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Formularios" EntityType="Self.Formularios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GruposSanguineo" EntityType="Self.GruposSanguineo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaestroAnexos" EntityType="Self.MaestroAnexos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpcionesMaestroAnexos" EntityType="Self.OpcionesMaestroAnexos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operaciones" EntityType="Self.Operaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OperacionesFormulario" EntityType="Self.OperacionesFormulario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PerfilesOperacionesFormulario" EntityType="Self.PerfilesOperacionesFormulario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexos" EntityType="Self.Sexos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuariosOperacionesFormulario" EntityType="Self.UsuariosOperacionesFormulario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Anexos_OpcionesMaestroAnexos" Association="Self.FK_Anexos_OpcionesMaestroAnexos">
+      <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
+      <End Role="Anexos" EntitySet="Anexos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Barrios_Municipios" Association="Self.FK_Barrios_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Barrios" EntitySet="Barrios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsecutivosTemporales_MaestroAnexos" Association="Self.FK_ConsecutivosTemporales_MaestroAnexos">
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+      <End Role="ConsecutivosTemporales" EntitySet="ConsecutivosTemporales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Personas_Sexo" Association="Self.FK_dbo_Personas_Sexo">
+      <End Role="Sexos" EntitySet="Sexos" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Formularios_Menus" Association="Self.FK_Formularios_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="Formularios" EntitySet="Formularios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaestroAnexos_AplicacionesWeb" Association="Self.FK_MaestroAnexos_AplicacionesWeb">
+      <End Role="AplicacionesWeb" EntitySet="AplicacionesWeb" />
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menus_AplicacionesWeb" Association="Self.FK_Menus_AplicacionesWeb">
+      <End Role="AplicacionesWeb" EntitySet="AplicacionesWeb" />
+      <End Role="Menus" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipios_Departamentos2" Association="Self.FK_Municipios_Departamentos2">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionesMaestroAnexos_MaestroAnexos" Association="Self.FK_OpcionesMaestroAnexos_MaestroAnexos">
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+      <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperacionesFormulario_Formularios" Association="Self.FK_OperacionesFormulario_Formularios">
+      <End Role="Formularios" EntitySet="Formularios" />
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperacionesFormulario_Operaciones" Association="Self.FK_OperacionesFormulario_Operaciones">
+      <End Role="Operaciones" EntitySet="Operaciones" />
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesOperacionesFormulario_OperacionesFormulario" Association="Self.FK_PerfilesOperacionesFormulario_OperacionesFormulario">
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+      <End Role="PerfilesOperacionesFormulario" EntitySet="PerfilesOperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesOperacionesFormulario_Perfiles" Association="Self.FK_PerfilesOperacionesFormulario_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="PerfilesOperacionesFormulario" EntitySet="PerfilesOperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_Barrios1" Association="Self.FK_Personas_Barrios1">
+      <End Role="Barrios" EntitySet="Barrios" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_DocumentosIdentidad" Association="Self.FK_Personas_DocumentosIdentidad">
+      <End Role="DocumentosIdentidad" EntitySet="DocumentosIdentidad" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_EstadosCivil1" Association="Self.FK_Personas_EstadosCivil1">
+      <End Role="EstadosCivil" EntitySet="EstadosCivil" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_GruposSanguineo1" Association="Self.FK_Personas_GruposSanguineo1">
+      <End Role="GruposSanguineo" EntitySet="GruposSanguineo" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_Municipios2" Association="Self.FK_Personas_Municipios2">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_Municipios3" Association="Self.FK_Personas_Municipios3">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Perfiles" Association="Self.FK_Usuarios_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Personas" Association="Self.FK_Usuarios_Personas">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosOperacionesFormulario_OperacionesFormulario" Association="Self.FK_UsuariosOperacionesFormulario_OperacionesFormulario">
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+      <End Role="UsuariosOperacionesFormulario" EntitySet="UsuariosOperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosOperacionesFormulario_Usuarios" Association="Self.FK_UsuariosOperacionesFormulario_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosOperacionesFormulario" EntitySet="UsuariosOperacionesFormulario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

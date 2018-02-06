@@ -1,2 +1,0 @@
-# DrillteXBD
-ProyectoCaleño

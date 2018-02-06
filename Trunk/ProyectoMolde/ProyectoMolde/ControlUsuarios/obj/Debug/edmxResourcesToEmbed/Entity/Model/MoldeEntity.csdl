@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoldeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MoldeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AplicacionesWeb" EntityType="MoldeModel.AplicacionesWeb" />
+    <EntitySet Name="Barrios" EntityType="MoldeModel.Barrios" />
+    <EntitySet Name="ControlAplicacion" EntityType="MoldeModel.ControlAplicacion" />
+    <EntitySet Name="Departamentos" EntityType="MoldeModel.Departamentos" />
+    <EntitySet Name="DocumentosIdentidad" EntityType="MoldeModel.DocumentosIdentidad" />
+    <EntitySet Name="EstadosCivil" EntityType="MoldeModel.EstadosCivil" />
+    <EntitySet Name="Formularios" EntityType="MoldeModel.Formularios" />
+    <EntitySet Name="GruposSanguineo" EntityType="MoldeModel.GruposSanguineo" />
+    <EntitySet Name="Menus" EntityType="MoldeModel.Menus" />
+    <EntitySet Name="Municipios" EntityType="MoldeModel.Municipios" />
+    <EntitySet Name="Operaciones" EntityType="MoldeModel.Operaciones" />
+    <EntitySet Name="OperacionesFormulario" EntityType="MoldeModel.OperacionesFormulario" />
+    <EntitySet Name="Perfiles" EntityType="MoldeModel.Perfiles" />
+    <EntitySet Name="PerfilesOperacionesFormulario" EntityType="MoldeModel.PerfilesOperacionesFormulario" />
+    <EntitySet Name="Personas" EntityType="MoldeModel.Personas" />
+    <EntitySet Name="Sexos" EntityType="MoldeModel.Sexos" />
+    <EntitySet Name="Usuarios" EntityType="MoldeModel.Usuarios" />
+    <EntitySet Name="UsuariosOperacionesFormulario" EntityType="MoldeModel.UsuariosOperacionesFormulario" />
+    <AssociationSet Name="FK_Menus_AplicacionesWeb" Association="MoldeModel.FK_Menus_AplicacionesWeb">
+      <End Role="AplicacionesWeb" EntitySet="AplicacionesWeb" />
+      <End Role="Menus" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Barrios_Municipios" Association="MoldeModel.FK_Barrios_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Barrios" EntitySet="Barrios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_Barrios1" Association="MoldeModel.FK_Personas_Barrios1">
+      <End Role="Barrios" EntitySet="Barrios" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipios_Departamentos2" Association="MoldeModel.FK_Municipios_Departamentos2">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_DocumentosIdentidad" Association="MoldeModel.FK_Personas_DocumentosIdentidad">
+      <End Role="DocumentosIdentidad" EntitySet="DocumentosIdentidad" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_EstadosCivil1" Association="MoldeModel.FK_Personas_EstadosCivil1">
+      <End Role="EstadosCivil" EntitySet="EstadosCivil" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Formularios_Menus" Association="MoldeModel.FK_Formularios_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="Formularios" EntitySet="Formularios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperacionesFormulario_Formularios" Association="MoldeModel.FK_OperacionesFormulario_Formularios">
+      <End Role="Formularios" EntitySet="Formularios" />
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_GruposSanguineo1" Association="MoldeModel.FK_Personas_GruposSanguineo1">
+      <End Role="GruposSanguineo" EntitySet="GruposSanguineo" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_Municipios2" Association="MoldeModel.FK_Personas_Municipios2">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personas_Municipios3" Association="MoldeModel.FK_Personas_Municipios3">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperacionesFormulario_Operaciones" Association="MoldeModel.FK_OperacionesFormulario_Operaciones">
+      <End Role="Operaciones" EntitySet="Operaciones" />
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesOperacionesFormulario_OperacionesFormulario" Association="MoldeModel.FK_PerfilesOperacionesFormulario_OperacionesFormulario">
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+      <End Role="PerfilesOperacionesFormulario" EntitySet="PerfilesOperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosOperacionesFormulario_OperacionesFormulario" Association="MoldeModel.FK_UsuariosOperacionesFormulario_OperacionesFormulario">
+      <End Role="OperacionesFormulario" EntitySet="OperacionesFormulario" />
+      <End Role="UsuariosOperacionesFormulario" EntitySet="UsuariosOperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesOperacionesFormulario_Perfiles" Association="MoldeModel.FK_PerfilesOperacionesFormulario_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="PerfilesOperacionesFormulario" EntitySet="PerfilesOperacionesFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Perfiles" Association="MoldeModel.FK_Usuarios_Perfiles">
+      <End Role="Perfiles" EntitySet="Perfiles" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Personas_Sexo" Association="MoldeModel.FK_dbo_Personas_Sexo">
+      <End Role="Sexos" EntitySet="Sexos" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Personas" Association="MoldeModel.FK_Usuarios_Personas">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosOperacionesFormulario_Usuarios" Association="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosOperacionesFormulario" EntitySet="UsuariosOperacionesFormulario" />
+    </AssociationSet>
+    <EntitySet Name="OpcionesMaestroAnexos" EntityType="MoldeModel.OpcionesMaestroAnexos" />
+    <EntitySet Name="MaestroAnexos" EntityType="MoldeModel.MaestroAnexos" />
+    <AssociationSet Name="FK_OpcionesMaestroAnexos_MaestroAnexos" Association="MoldeModel.FK_OpcionesMaestroAnexos_MaestroAnexos">
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+      <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
+    </AssociationSet>
+    <EntitySet Name="ConsecutivosTemporales" EntityType="MoldeModel.ConsecutivosTemporales" />
+    <AssociationSet Name="FK_ConsecutivosTemporales_MaestroAnexos" Association="MoldeModel.FK_ConsecutivosTemporales_MaestroAnexos">
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+      <End Role="ConsecutivosTemporales" EntitySet="ConsecutivosTemporales" />
+    </AssociationSet>
+    <EntitySet Name="Anexos" EntityType="MoldeModel.Anexos" />
+    <AssociationSet Name="FK_Anexos_OpcionesMaestroAnexos" Association="MoldeModel.FK_Anexos_OpcionesMaestroAnexos">
+      <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
+      <End Role="Anexos" EntitySet="Anexos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaestroAnexos_AplicacionesWeb" Association="MoldeModel.FK_MaestroAnexos_AplicacionesWeb">
+      <End Role="AplicacionesWeb" EntitySet="AplicacionesWeb" />
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AplicacionesWeb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menus" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="AplicacionesWeb" ToRole="Menus" />
+    <NavigationProperty Name="MaestroAnexos" Relationship="MoldeModel.FK_MaestroAnexos_AplicacionesWeb" FromRole="AplicacionesWeb" ToRole="MaestroAnexos" />
+  </EntityType>
+  <EntityType Name="Barrios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="municipioId" Type="Int32" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Municipios" Relationship="MoldeModel.FK_Barrios_Municipios" FromRole="Barrios" ToRole="Municipios" />
+    <NavigationProperty Name="Personas" Relationship="MoldeModel.FK_Personas_Barrios1" FromRole="Barrios" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="ControlAplicacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInicio" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="fechaFin" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <Property Name="codigoDane" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Municipios" Relationship="MoldeModel.FK_Municipios_Departamentos2" FromRole="Departamentos" ToRole="Municipios" />
+  </EntityType>
+  <EntityType Name="DocumentosIdentidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sigla" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Personas" Relationship="MoldeModel.FK_Personas_DocumentosIdentidad" FromRole="DocumentosIdentidad" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="EstadosCivil">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sigla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Personas" Relationship="MoldeModel.FK_Personas_EstadosCivil1" FromRole="EstadosCivil" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="Formularios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreFormulario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="urlFormulario" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="nombreMostrar" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="menuId" Type="Int32" Nullable="false" />
+    <Property Name="esVisible" Type="Boolean" Nullable="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <Property Name="estados" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="iconOpcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="indexVisibilidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menus" Relationship="MoldeModel.FK_Formularios_Menus" FromRole="Formularios" ToRole="Menus" />
+    <NavigationProperty Name="OperacionesFormulario" Relationship="MoldeModel.FK_OperacionesFormulario_Formularios" FromRole="Formularios" ToRole="OperacionesFormulario" />
+  </EntityType>
+  <EntityType Name="GruposSanguineo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sigla" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Personas" Relationship="MoldeModel.FK_Personas_GruposSanguineo1" FromRole="GruposSanguineo" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreMenu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="aplicacionWebId" Type="Int32" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="icon" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="indexVisibilidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AplicacionesWeb" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="Menus" ToRole="AplicacionesWeb" />
+    <NavigationProperty Name="Formularios" Relationship="MoldeModel.FK_Formularios_Menus" FromRole="Menus" ToRole="Formularios" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="departamentoId" Type="Int32" Nullable="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <Property Name="codigoDane" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Barrios" Relationship="MoldeModel.FK_Barrios_Municipios" FromRole="Municipios" ToRole="Barrios" />
+    <NavigationProperty Name="Departamentos" Relationship="MoldeModel.FK_Municipios_Departamentos2" FromRole="Municipios" ToRole="Departamentos" />
+    <NavigationProperty Name="Personas" Relationship="MoldeModel.FK_Personas_Municipios2" FromRole="Municipios" ToRole="Personas" />
+    <NavigationProperty Name="Personas1" Relationship="MoldeModel.FK_Personas_Municipios3" FromRole="Municipios" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="Operaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreOperacion" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <Property Name="visualizaFormularioMenu" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OperacionesFormulario" Relationship="MoldeModel.FK_OperacionesFormulario_Operaciones" FromRole="Operaciones" ToRole="OperacionesFormulario" />
+  </EntityType>
+  <EntityType Name="OperacionesFormulario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="formularioId" Type="Int32" />
+    <Property Name="operacionId" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Formularios" Relationship="MoldeModel.FK_OperacionesFormulario_Formularios" FromRole="OperacionesFormulario" ToRole="Formularios" />
+    <NavigationProperty Name="Operaciones" Relationship="MoldeModel.FK_OperacionesFormulario_Operaciones" FromRole="OperacionesFormulario" ToRole="Operaciones" />
+    <NavigationProperty Name="PerfilesOperacionesFormulario" Relationship="MoldeModel.FK_PerfilesOperacionesFormulario_OperacionesFormulario" FromRole="OperacionesFormulario" ToRole="PerfilesOperacionesFormulario" />
+    <NavigationProperty Name="UsuariosOperacionesFormulario" Relationship="MoldeModel.FK_UsuariosOperacionesFormulario_OperacionesFormulario" FromRole="OperacionesFormulario" ToRole="UsuariosOperacionesFormulario" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrePerfil" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PerfilesOperacionesFormulario" Relationship="MoldeModel.FK_PerfilesOperacionesFormulario_Perfiles" FromRole="Perfiles" ToRole="PerfilesOperacionesFormulario" />
+    <NavigationProperty Name="Usuarios" Relationship="MoldeModel.FK_Usuarios_Perfiles" FromRole="Perfiles" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="PerfilesOperacionesFormulario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="operacionFormularioId" Type="Int32" />
+    <Property Name="perfilId" Type="Int32" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OperacionesFormulario" Relationship="MoldeModel.FK_PerfilesOperacionesFormulario_OperacionesFormulario" FromRole="PerfilesOperacionesFormulario" ToRole="OperacionesFormulario" />
+    <NavigationProperty Name="Perfiles" Relationship="MoldeModel.FK_PerfilesOperacionesFormulario_Perfiles" FromRole="PerfilesOperacionesFormulario" ToRole="Perfiles" />
+  </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numeroDocumento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="documentoIdentidadId" Type="Int32" Nullable="false" />
+    <Property Name="primerNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundoNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="primerApellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundoApellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="municipioId" Type="Int32" Nullable="false" />
+    <Property Name="grupoSanguineoId" Type="Int32" Nullable="false" />
+    <Property Name="sexoId" Type="Int32" Nullable="false" />
+    <Property Name="fechaExpedicionCedula" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="municipioExpedicionId" Type="Int32" Nullable="false" />
+    <Property Name="barrioId" Type="Int32" />
+    <Property Name="direcccion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="estatura" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="peso" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estadoCivilId" Type="Int32" Nullable="false" />
+    <Property Name="telefonoFijo" Type="Int64" Nullable="false" />
+    <Property Name="telefonoCelular" Type="Int64" Nullable="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Barrios" Relationship="MoldeModel.FK_Personas_Barrios1" FromRole="Personas" ToRole="Barrios" />
+    <NavigationProperty Name="DocumentosIdentidad" Relationship="MoldeModel.FK_Personas_DocumentosIdentidad" FromRole="Personas" ToRole="DocumentosIdentidad" />
+    <NavigationProperty Name="EstadosCivil" Relationship="MoldeModel.FK_Personas_EstadosCivil1" FromRole="Personas" ToRole="EstadosCivil" />
+    <NavigationProperty Name="GruposSanguineo" Relationship="MoldeModel.FK_Personas_GruposSanguineo1" FromRole="Personas" ToRole="GruposSanguineo" />
+    <NavigationProperty Name="Municipios" Relationship="MoldeModel.FK_Personas_Municipios2" FromRole="Personas" ToRole="Municipios" />
+    <NavigationProperty Name="Municipios1" Relationship="MoldeModel.FK_Personas_Municipios3" FromRole="Personas" ToRole="Municipios" />
+    <NavigationProperty Name="Sexos" Relationship="MoldeModel.FK_dbo_Personas_Sexo" FromRole="Personas" ToRole="Sexos" />
+    <NavigationProperty Name="Usuarios" Relationship="MoldeModel.FK_Usuarios_Personas" FromRole="Personas" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Sexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sigla" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Personas" Relationship="MoldeModel.FK_dbo_Personas_Sexo" FromRole="Sexos" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idPersona" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" />
+    <Property Name="perfilId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Perfiles" Relationship="MoldeModel.FK_Usuarios_Perfiles" FromRole="Usuarios" ToRole="Perfiles" />
+    <NavigationProperty Name="Personas" Relationship="MoldeModel.FK_Usuarios_Personas" FromRole="Usuarios" ToRole="Personas" />
+    <NavigationProperty Name="UsuariosOperacionesFormulario" Relationship="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" FromRole="Usuarios" ToRole="UsuariosOperacionesFormulario" />
+  </EntityType>
+  <EntityType Name="UsuariosOperacionesFormulario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <Property Name="operacionFormularioId" Type="Int32" Nullable="false" />
+    <Property Name="usuarioIdApl" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OperacionesFormulario" Relationship="MoldeModel.FK_UsuariosOperacionesFormulario_OperacionesFormulario" FromRole="UsuariosOperacionesFormulario" ToRole="OperacionesFormulario" />
+    <NavigationProperty Name="Usuarios" Relationship="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" FromRole="UsuariosOperacionesFormulario" ToRole="Usuarios" />
+  </EntityType>
+  <Association Name="FK_Menus_AplicacionesWeb">
+    <End Type="MoldeModel.AplicacionesWeb" Role="AplicacionesWeb" Multiplicity="0..1" />
+    <End Type="MoldeModel.Menus" Role="Menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AplicacionesWeb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Menus">
+        <PropertyRef Name="aplicacionWebId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Barrios_Municipios">
+    <End Type="MoldeModel.Municipios" Role="Municipios" Multiplicity="0..1" />
+    <End Type="MoldeModel.Barrios" Role="Barrios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Barrios">
+        <PropertyRef Name="municipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_Barrios1">
+    <End Type="MoldeModel.Barrios" Role="Barrios" Multiplicity="0..1" />
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Barrios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="barrioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipios_Departamentos2">
+    <End Type="MoldeModel.Departamentos" Role="Departamentos" Multiplicity="1" />
+    <End Type="MoldeModel.Municipios" Role="Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Municipios">
+        <PropertyRef Name="departamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_DocumentosIdentidad">
+    <End Type="MoldeModel.DocumentosIdentidad" Role="DocumentosIdentidad" Multiplicity="1" />
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentosIdentidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="documentoIdentidadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_EstadosCivil1">
+    <End Type="MoldeModel.EstadosCivil" Role="EstadosCivil" Multiplicity="1" />
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadosCivil">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="estadoCivilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Formularios_Menus">
+    <End Type="MoldeModel.Menus" Role="Menus" Multiplicity="1" />
+    <End Type="MoldeModel.Formularios" Role="Formularios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Formularios">
+        <PropertyRef Name="menuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperacionesFormulario_Formularios">
+    <End Type="MoldeModel.Formularios" Role="Formularios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MoldeModel.OperacionesFormulario" Role="OperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formularios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperacionesFormulario">
+        <PropertyRef Name="formularioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_GruposSanguineo1">
+    <End Type="MoldeModel.GruposSanguineo" Role="GruposSanguineo" Multiplicity="1" />
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GruposSanguineo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="grupoSanguineoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_Municipios2">
+    <End Type="MoldeModel.Municipios" Role="Municipios" Multiplicity="1" />
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="municipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personas_Municipios3">
+    <End Type="MoldeModel.Municipios" Role="Municipios" Multiplicity="1" />
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="municipioExpedicionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperacionesFormulario_Operaciones">
+    <End Type="MoldeModel.Operaciones" Role="Operaciones" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MoldeModel.OperacionesFormulario" Role="OperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operaciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperacionesFormulario">
+        <PropertyRef Name="operacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesOperacionesFormulario_OperacionesFormulario">
+    <End Type="MoldeModel.OperacionesFormulario" Role="OperacionesFormulario" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MoldeModel.PerfilesOperacionesFormulario" Role="PerfilesOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperacionesFormulario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PerfilesOperacionesFormulario">
+        <PropertyRef Name="operacionFormularioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosOperacionesFormulario_OperacionesFormulario">
+    <End Type="MoldeModel.OperacionesFormulario" Role="OperacionesFormulario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MoldeModel.UsuariosOperacionesFormulario" Role="UsuariosOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperacionesFormulario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsuariosOperacionesFormulario">
+        <PropertyRef Name="operacionFormularioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesOperacionesFormulario_Perfiles">
+    <End Type="MoldeModel.Perfiles" Role="Perfiles" Multiplicity="0..1" />
+    <End Type="MoldeModel.PerfilesOperacionesFormulario" Role="PerfilesOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PerfilesOperacionesFormulario">
+        <PropertyRef Name="perfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Perfiles">
+    <End Type="MoldeModel.Perfiles" Role="Perfiles" Multiplicity="1" />
+    <End Type="MoldeModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfiles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="perfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Personas_Sexo">
+    <End Type="MoldeModel.Sexos" Role="Sexos" Multiplicity="1" />
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="sexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Personas">
+    <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="0..1" />
+    <End Type="MoldeModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosOperacionesFormulario_Usuarios">
+    <End Type="MoldeModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+    <End Type="MoldeModel.UsuariosOperacionesFormulario" Role="UsuariosOperacionesFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsuariosOperacionesFormulario">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OpcionesMaestroAnexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreOpcion" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="maestroAnexosId" Type="Int32" Nullable="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MaestroAnexos" Relationship="MoldeModel.FK_OpcionesMaestroAnexos_MaestroAnexos" FromRole="OpcionesMaestroAnexos" ToRole="MaestroAnexos" />
+    <NavigationProperty Name="Anexos" Relationship="MoldeModel.FK_Anexos_OpcionesMaestroAnexos" FromRole="OpcionesMaestroAnexos" ToRole="Anexos" />
+  </EntityType>
+  <EntityType Name="MaestroAnexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tabla" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OpcionesMaestroAnexos" Relationship="MoldeModel.FK_OpcionesMaestroAnexos_MaestroAnexos" FromRole="MaestroAnexos" ToRole="OpcionesMaestroAnexos" />
+    <NavigationProperty Name="ConsecutivosTemporales" Relationship="MoldeModel.FK_ConsecutivosTemporales_MaestroAnexos" FromRole="MaestroAnexos" ToRole="ConsecutivosTemporales" />
+    <Property Name="aplicacionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AplicacionesWeb" Relationship="MoldeModel.FK_MaestroAnexos_AplicacionesWeb" FromRole="MaestroAnexos" ToRole="AplicacionesWeb" />
+  </EntityType>
+  <Association Name="FK_OpcionesMaestroAnexos_MaestroAnexos">
+    <End Type="MoldeModel.MaestroAnexos" Role="MaestroAnexos" Multiplicity="1" />
+    <End Type="MoldeModel.OpcionesMaestroAnexos" Role="OpcionesMaestroAnexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OpcionesMaestroAnexos">
+        <PropertyRef Name="maestroAnexosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ConsecutivosTemporales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="consecutivo" Type="Int64" Nullable="false" />
+    <Property Name="maestroAnexoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MaestroAnexos" Relationship="MoldeModel.FK_ConsecutivosTemporales_MaestroAnexos" FromRole="ConsecutivosTemporales" ToRole="MaestroAnexos" />
+  </EntityType>
+  <Association Name="FK_ConsecutivosTemporales_MaestroAnexos">
+    <End Type="MoldeModel.MaestroAnexos" Role="MaestroAnexos" Multiplicity="1" />
+    <End Type="MoldeModel.ConsecutivosTemporales" Role="ConsecutivosTemporales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ConsecutivosTemporales">
+        <PropertyRef Name="maestroAnexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Anexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="opcionMaestroAnexoId" Type="Int32" Nullable="false" />
+    <Property Name="registroTablaId" Type="Int32" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <Property Name="anexo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="nombreAnexo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="consecutivoTemporal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OpcionesMaestroAnexos" Relationship="MoldeModel.FK_Anexos_OpcionesMaestroAnexos" FromRole="Anexos" ToRole="OpcionesMaestroAnexos" />
+  </EntityType>
+  <Association Name="FK_Anexos_OpcionesMaestroAnexos">
+    <End Type="MoldeModel.OpcionesMaestroAnexos" Role="OpcionesMaestroAnexos" Multiplicity="1" />
+    <End Type="MoldeModel.Anexos" Role="Anexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpcionesMaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Anexos">
+        <PropertyRef Name="opcionMaestroAnexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaestroAnexos_AplicacionesWeb">
+    <End Type="MoldeModel.AplicacionesWeb" Role="AplicacionesWeb" Multiplicity="1" />
+    <End Type="MoldeModel.MaestroAnexos" Role="MaestroAnexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AplicacionesWeb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MaestroAnexos">
+        <PropertyRef Name="aplicacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
